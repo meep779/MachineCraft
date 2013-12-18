@@ -2,6 +2,7 @@ package net.superguy9.machinecraft;
 
 import net.superguy9.machinecraft.config.ConfigHandler;
 import net.superguy9.machinecraft.creativetabs.MachineCraftTabs;
+import net.superguy9.machinecraft.items.Items;
 import net.superguy9.machinecraft.network.PacketHandler;
 import net.superguy9.machinecraft.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -12,7 +13,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = ModInformation.ID, name = ModInformation.NAME, version = ModInformation.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class, channels = {ModInformation.CHANNEL})
@@ -29,6 +29,7 @@ public class MachineCraft {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
+		Items.init();
 		
 		proxy.initRenderers();
 		proxy.initSounds();
@@ -36,10 +37,8 @@ public class MachineCraft {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabMachineCraftCore", "en_US", "MachineCraft Core");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabMachineCraftBlocks", "en_US", "MachineCraft Blocks");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabMachineCraftItems", "en_US", "MachineCraft Items");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabMachineCraftPower", "en_US", "MachineCraft Power");
+		MachineCraftTabs.addNames();
+		Items.addNames();
 	}
 	
 	@EventHandler
