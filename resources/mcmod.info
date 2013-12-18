@@ -1,0 +1,16 @@
+[
+{
+  "modid": “MachineCraft”,
+  "name": “MachineCraft”,
+  "description": “A tech Minecraft mod that adds blocks such as automatic machines.”,
+  "version": “1.0.0”,
+  "mcversion": “1.6.4”,
+  "url": "",
+  "updateUrl": "",
+  "authors": [“superguy9”,””meep779],
+  "credits": “Code by superguy9 and meep799”,
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
