@@ -1,6 +1,7 @@
 package net.superguy9.machinecraft;
 
 import net.superguy9.machinecraft.config.ConfigHandler;
+import net.superguy9.machinecraft.creativetabs.MachineCraftTabs;
 import net.superguy9.machinecraft.network.PacketHandler;
 import net.superguy9.machinecraft.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -22,6 +23,8 @@ public class MachineCraft {
 	
 	@SidedProxy(clientSide = "net.superguy9.machinecraft.proxy.ClientProxy", serverSide = "net.superguy9.machinecraft.proxy.CommonProxy")
 	public static CommonProxy proxy;
+	
+	public static MachineCraftTabs creativeTabs = new MachineCraftTabs();
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
